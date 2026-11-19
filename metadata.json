@@ -1,0 +1,6 @@
+{
+  "name": "Thermal Mapping Analysis",
+  "description": "Jordan National Metrology Institute (JNMI) & Royal Scientific Society (RSS) Thermal Mapping and Metrology Analysis System for Data Loggers and Fluke SuperDAQ systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

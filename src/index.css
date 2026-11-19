@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ink: #182330;
+  --muted: #788493;
+  --line: #e5e9ef;
+  --paper: #f5f7fa;
+  --white: #ffffff;
+  --blue: #2864dc;
+  --blue-dark: #1e4fae;
+  --blue-soft: #edf3ff;
+  --mint: #e8f5ed;
+  --coral: #bd4d42;
+  --coral-soft: #fff0ed;
+  --gold: #94620c;
+  --gold-soft: #fff5dc;
+  --shadow: 0 2px 8px rgba(27, 43, 67, 0.04), 0 1px 2px rgba(27, 43, 67, 0.03);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Enforce Inter everywhere even if legacy font-mono appears */
+.font-mono {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+/* Mobile-only ergonomics (<768px): prevent iOS Safari zoom on input focus and smooth touch scrolling */
+@media (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']):not([type='file']),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
