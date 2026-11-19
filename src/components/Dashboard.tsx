@@ -52,7 +52,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {/* Full-bleed Hero Background Artwork */}
         <div className="absolute inset-0 pointer-events-none select-none">
           <img
-            src="/assets/aistudio/Thermal_Mapping_in_a_Smart_Warehouse_00c88b7b.webp"
+            src={`${import.meta.env.BASE_URL}assets/aistudio/Thermal_Mapping_in_a_Smart_Warehouse_00c88b7b.webp`}
             alt="Thermal mapping visualization of temperature-controlled storage room"
             className="w-full h-full object-cover object-[62%_center] sm:object-[66%_center] md:object-center border-0 outline-none shadow-none saturate-[0.94] contrast-[1.06] brightness-[0.99] opacity-95 md:opacity-100 dark:saturate-[0.9] dark:contrast-[1.04] dark:brightness-[0.92] dark:opacity-90 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.08)_16%,rgba(0,0,0,0.35)_32%,rgba(0,0,0,0.72)_48%,black_66%,black_90%,rgba(0,0,0,0.82)_100%)] md:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_14%,rgba(0,0,0,0.38)_28%,rgba(0,0,0,0.74)_44%,rgba(0,0,0,0.94)_56%,black_66%,black_91%,rgba(0,0,0,0.84)_100%)] dark:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.08)_16%,rgba(0,0,0,0.34)_30%,rgba(0,0,0,0.72)_46%,black_62%,black_90%,rgba(0,0,0,0.82)_100%)]"
             onError={(e) => {

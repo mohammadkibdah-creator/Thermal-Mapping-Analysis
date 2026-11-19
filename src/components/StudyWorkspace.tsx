@@ -346,7 +346,7 @@ export const StudyWorkspace: React.FC<StudyWorkspaceProps> = ({
         setEndStr('2025-04-13T17:00');
         setSamplingIntervalMode('auto');
 
-        const resp = await fetch('/Report_Table.xls');
+        const resp = await fetch(`${import.meta.env.BASE_URL}Report_Table.xls`);
         const buf = await resp.arrayBuffer();
         const parsed = parseDataLoggerFile(buf, 'Report_Table.xls');
 
@@ -380,7 +380,7 @@ export const StudyWorkspace: React.FC<StudyWorkspaceProps> = ({
             : sensorKits[0]?.kit_code || 'KIT_44070036';
         setSelectedKitCode(activeKitCode);
 
-        const resp = await fetch('/dat00001.xlsx');
+        const resp = await fetch(`${import.meta.env.BASE_URL}dat00001.xlsx`);
         const buf = await resp.arrayBuffer();
         const parsed = parseSuperDaqFile(buf, 'dat00001.xlsx');
 

@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
           className="flex items-center gap-2 sm:gap-3 text-left hover:opacity-90 transition-opacity cursor-pointer min-w-0 flex-1 lg:flex-initial lg:shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2864dc]/40 rounded-lg"
         >
           <img
-            src="/RSS_JNMI_Lock-Up.png"
+            src={`${import.meta.env.BASE_URL}RSS_JNMI_Lock-Up.png`}
             alt="Royal Scientific Society and Jordan National Metrology Institute"
             className="h-7 sm:h-9 w-auto max-w-[92px] sm:max-w-[140px] md:max-w-[165px] object-contain shrink-0 dark:brightness-110"
             onError={(e) => {
