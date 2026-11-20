@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { LogOut, Moon, Sun } from 'lucide-react';
 
 export type ActiveTab = 'dashboard' | 'equipment' | 'sensor_kits' | 'study';
 
@@ -9,6 +9,7 @@ interface HeaderProps {
   applicationName?: string;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
+  onLogout?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -16,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   setActiveTab,
   isDarkMode,
   onToggleDarkMode,
+  onLogout,
 }) => {
   const navItems: { id: ActiveTab; label: string }[] = [
     { id: 'dashboard', label: 'Dashboard' },
@@ -86,6 +88,18 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
+
+          {onLogout && (
+            <button
+              type="button"
+              onClick={onLogout}
+              title="Sign Out"
+              aria-label="Sign Out"
+              className="min-h-[40px] min-w-[40px] sm:min-h-0 sm:min-w-0 flex items-center justify-center p-2 rounded-lg border border-[#e5e9ef] dark:border-[#334155] bg-[#f8f9fb] dark:bg-[#1e293b] text-[#526071] dark:text-slate-300 hover:bg-[#fff0ed] dark:hover:bg-red-950/50 hover:text-[#bd4d42] dark:hover:text-red-400 hover:border-[#fed7d0] dark:hover:border-red-800/70 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2864dc]/30"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          )}
         </div>
       </div>
 

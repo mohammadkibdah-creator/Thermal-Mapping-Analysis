@@ -14,6 +14,8 @@ import { EquipmentList } from './components/EquipmentList.tsx';
 import { SensorKitList } from './components/SensorKitList.tsx';
 import { StudyWorkspace } from './components/StudyWorkspace.tsx';
 import { ResultsPreview } from './components/ResultsPreview.tsx';
+import { LoginScreen } from './components/LoginScreen.tsx';
+import { isSessionAuthorized, revokeSessionAccess } from './utils/accessGate.ts';
 import { StudyAnalysisOutput } from './utils/importers.ts';
 import { formatDateTimeDDMMYYYY } from './utils/dateFormat.ts';
 import {
@@ -39,6 +41,7 @@ interface ToastState {
 }
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => isSessionAuthorized());
   const [state, setState] = useState<AppState>(getInitialState);
   const [activeTab, setActiveTab] = useState<ActiveTab | 'results'>('dashboard');
   const [studyInitialStep, setStudyInitialStep] = useState<1 | 2 | 3>(1);
@@ -568,6 +571,7 @@ export default function App() {
   };
 
   useEffect(() => {
+    if (!isAuthenticated) return;
     const sheetId = state.settings.google_sheets_id?.trim();
     const isAutoSyncEnabled = state.settings.google_sheets_sync_enabled !== false;
     if (!sheetId || !isAutoSyncEnabled) return;
@@ -579,13 +583,30 @@ export default function App() {
     }, 60000);
 
     return () => clearInterval(intervalTimer);
-  }, [state.settings.google_sheets_id, state.settings.google_sheets_sync_enabled]);
+  }, [isAuthenticated, state.settings.google_sheets_id, state.settings.google_sheets_sync_enabled]);
+
+  const handleLogout = () => {
+    revokeSessionAccess();
+    setIsAuthenticated(false);
+    setActiveTab('dashboard');
+    setAnalysisResults(null);
+  };
 
   const handleLaunchSampleStudy = (sampleType: 'data_logger' | 'superdaq') => {
     setPresetSampleType(sampleType);
     setStudyInitialStep(3);
     setActiveTab('study');
   };
+
+  if (!isAuthenticated) {
+    return (
+      <LoginScreen
+        onAuthenticated={() => setIsAuthenticated(true)}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={() => setIsDarkMode((d) => !d)}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f5f7fa] dark:bg-[#0f172a] text-[#182330] dark:text-slate-100 transition-colors">
@@ -600,6 +621,7 @@ export default function App() {
         applicationName={state.settings.application_name}
         isDarkMode={isDarkMode}
         onToggleDarkMode={() => setIsDarkMode((d) => !d)}
+        onLogout={handleLogout}
       />
 
       {/* Main Page Body */}
