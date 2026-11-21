@@ -27,8 +27,8 @@ export const Header: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-sm border-b border-[#e5e9ef] dark:border-[#334155] px-3 sm:px-4 md:px-8 transition-colors">
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-2 sm:gap-4 py-2">
+    <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-sm border-b border-[#e5e9ef] dark:border-[#334155] px-3 sm:px-5 md:px-8 xl:px-10 transition-colors">
+      <div className="max-w-[1680px] mx-auto flex items-center justify-between gap-2 sm:gap-4 py-2 lg:py-2.5">
         {/* Slim Single-Line Brand Zone */}
         <button
           onClick={() => setActiveTab('dashboard')}
@@ -37,16 +37,16 @@ export const Header: React.FC<HeaderProps> = ({
           <img
             src={`${import.meta.env.BASE_URL}RSS_JNMI_Lock-Up.png`}
             alt="Royal Scientific Society and Jordan National Metrology Institute"
-            className="h-7 sm:h-9 w-auto max-w-[92px] sm:max-w-[140px] md:max-w-[165px] object-contain shrink-0 dark:brightness-110"
+            className="h-7 sm:h-9 lg:h-10 w-auto max-w-[92px] sm:max-w-[140px] md:max-w-[165px] lg:max-w-[180px] object-contain shrink-0 dark:brightness-110"
             onError={(e) => {
               (e.target as HTMLElement).style.display = 'none';
             }}
           />
           <div className="flex flex-col justify-center border-l border-[#e5e9ef] dark:border-[#334155] pl-2 sm:pl-3 min-w-0">
-            <span className="text-[13px] sm:text-[15px] md:text-[16px] font-bold text-[#182330] dark:text-slate-100 tracking-[0.015em] leading-tight truncate sm:whitespace-nowrap">
+            <span className="text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-bold text-[#182330] dark:text-slate-100 tracking-[0.015em] leading-tight truncate sm:whitespace-nowrap">
               Thermal Mapping Analysis
             </span>
-            <span className="w-full flex items-center justify-between gap-1.5 sm:gap-2 text-[8.5px] sm:text-[9px] font-medium text-[#647184] dark:text-slate-400 leading-tight mt-0.5 truncate sm:whitespace-nowrap">
+            <span className="w-full flex items-center justify-between gap-1.5 sm:gap-2 text-[8.5px] sm:text-[9px] lg:text-[10px] font-medium text-[#647184] dark:text-slate-400 leading-tight mt-0.5 truncate sm:whitespace-nowrap">
               <span className="shrink-0">JNMI · RSS</span>
               <span className="truncate">
                 Developed by{' '}
@@ -60,14 +60,14 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop Navigation Tabs + Dark Mode Toggle */}
         <div className="flex items-center gap-2 shrink-0">
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main navigation">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2864dc]/30 ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold transition-colors cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2864dc]/30 ${
                     isActive
                       ? 'bg-[#edf3ff] dark:bg-blue-950/60 text-[#2864dc] dark:text-blue-400'
                       : 'text-[#526071] dark:text-slate-300 hover:bg-[#f5f7fa] dark:hover:bg-[#1e293b] hover:text-[#182330] dark:hover:text-white'

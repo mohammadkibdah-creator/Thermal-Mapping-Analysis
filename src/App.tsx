@@ -625,7 +625,7 @@ export default function App() {
       />
 
       {/* Main Page Body */}
-      <main className="flex-1 max-w-[1240px] w-full mx-auto px-3 sm:px-4 md:px-8 py-4 sm:py-6">
+      <main className="flex-1 max-w-[1680px] w-full mx-auto px-3 sm:px-5 md:px-8 xl:px-10 py-4 sm:py-6 lg:py-8">
         {activeTab === 'dashboard' && (
           <Dashboard
             state={state}
@@ -695,8 +695,8 @@ export default function App() {
       </main>
 
       {/* Institutional Footer */}
-      <footer className="border-t border-[#e5e9ef] dark:border-[#334155] bg-white dark:bg-[#1e293b] text-xs text-[#647184] dark:text-slate-400 py-3 pb-safe sm:pb-3 px-3 sm:px-4 md:px-8 mt-auto transition-colors">
-        <div className="max-w-[1240px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-center sm:text-left">
+      <footer className="border-t border-[#e5e9ef] dark:border-[#334155] bg-white dark:bg-[#1e293b] text-xs text-[#647184] dark:text-slate-400 py-3 lg:py-3.5 pb-safe sm:pb-3 lg:pb-3.5 px-3 sm:px-5 md:px-8 xl:px-10 mt-auto transition-colors">
+        <div className="max-w-[1680px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-center sm:text-left">
           <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#526071] dark:text-slate-300 leading-relaxed">
             <span>© 2026 Eng. Mohammad Ibdah. All rights reserved. Thermal Mapping Analysis Version 1.0.0</span>
           </div>

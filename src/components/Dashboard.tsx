@@ -28,20 +28,20 @@ export const Dashboard: React.FC<DashboardProps> = ({
   const expiredCount = dlExpiredCount + sqExpiredCount;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 lg:space-y-7">
       {/* Hero Panel */}
-      <section className="relative overflow-hidden rounded-xl border border-[#dce6f7] dark:border-[#334155] bg-gradient-to-r from-white via-[#f5f8ff] to-[#edf3ff] dark:from-[#1e293b] dark:via-[#1e293b] dark:to-[#0f172a] p-5 sm:p-6 md:p-9 min-h-[220px] sm:min-h-[268px] flex flex-col md:flex-row items-center justify-between shadow-sm">
-        <div className="relative z-10 w-full md:w-auto max-w-md space-y-3 sm:space-y-4">
-          <h1 className="text-2xl md:text-3xl font-bold text-[#182330] dark:text-slate-100 tracking-tight leading-snug">
+      <section className="relative overflow-hidden rounded-xl border border-[#dce6f7] dark:border-[#334155] bg-gradient-to-r from-white via-[#f5f8ff] to-[#edf3ff] dark:from-[#1e293b] dark:via-[#1e293b] dark:to-[#0f172a] p-5 sm:p-6 md:p-9 lg:p-12 xl:p-14 min-h-[220px] sm:min-h-[268px] lg:min-h-[340px] xl:min-h-[400px] flex flex-col md:flex-row items-center justify-between shadow-sm">
+        <div className="relative z-10 w-full md:w-auto max-w-md lg:max-w-lg space-y-3 sm:space-y-4 lg:space-y-5">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold text-[#182330] dark:text-slate-100 tracking-tight leading-snug">
             Thermal Mapping Analysis
           </h1>
-          <p className="text-xs md:text-sm text-[#526071] dark:text-slate-300 leading-relaxed">
+          <p className="text-xs md:text-sm lg:text-base text-[#526071] dark:text-slate-300 leading-relaxed">
             Analyze temperature and humidity data, apply calibration corrections, and generate detailed study reports.
           </p>
-          <div className="pt-1 flex flex-wrap items-center gap-3">
+          <div className="pt-1 lg:pt-2 flex flex-wrap items-center gap-3">
             <button
               onClick={() => setActiveTab('study')}
-              className="w-full sm:w-auto min-h-[44px] sm:min-h-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#2864dc] text-white text-xs font-semibold hover:bg-[#1e4fae] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2864dc]/40"
+              className="w-full sm:w-auto min-h-[44px] sm:min-h-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-xl bg-[#2864dc] text-white text-xs lg:text-sm font-semibold hover:bg-[#1e4fae] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2864dc]/40"
             >
               <span>Start a Study</span>
               <ArrowRight className="w-4 h-4" />
@@ -67,37 +67,37 @@ export const Dashboard: React.FC<DashboardProps> = ({
       </section>
 
       {/* Equipment Summary Statistics Cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4" aria-label="Equipment summary">
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6" aria-label="Equipment summary">
         <article
           onClick={() => setActiveTab('equipment')}
-          className="p-5 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
+          className="p-5 lg:p-7 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] lg:min-h-[156px] xl:min-h-[172px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
         >
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
+            <span className="text-xs lg:text-sm font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
               Registered Data Loggers
             </span>
-            <span className="w-7 h-7 rounded-lg bg-[#edf3ff] dark:bg-blue-950/60 text-[#2864dc] dark:text-blue-400 text-[11px] font-bold flex items-center justify-center shrink-0">
+            <span className="w-7 h-7 lg:w-9 lg:h-9 rounded-lg bg-[#edf3ff] dark:bg-blue-950/60 text-[#2864dc] dark:text-blue-400 text-[11px] lg:text-xs font-bold flex items-center justify-center shrink-0">
               DL
             </span>
           </div>
-          <strong className="text-3xl font-extrabold text-[#182330] dark:text-slate-100 tabular-nums mt-3 tracking-tight">
+          <strong className="text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-[#182330] dark:text-slate-100 tabular-nums mt-3 lg:mt-5 tracking-tight">
             {totalEquipment}
           </strong>
         </article>
 
         <article
           onClick={() => setActiveTab('sensor_kits')}
-          className="p-5 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
+          className="p-5 lg:p-7 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] lg:min-h-[156px] xl:min-h-[172px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
         >
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
+            <span className="text-xs lg:text-sm font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
               Registered SuperDAQ Kits
             </span>
-            <span className="w-7 h-7 rounded-lg bg-[#edf3ff] dark:bg-blue-950/60 text-[#2864dc] dark:text-blue-400 text-[11px] font-bold flex items-center justify-center shrink-0">
+            <span className="w-7 h-7 lg:w-9 lg:h-9 rounded-lg bg-[#edf3ff] dark:bg-blue-950/60 text-[#2864dc] dark:text-blue-400 text-[11px] lg:text-xs font-bold flex items-center justify-center shrink-0">
               SQ
             </span>
           </div>
-          <strong className="text-3xl font-extrabold text-[#182330] dark:text-slate-100 tabular-nums mt-3 tracking-tight">
+          <strong className="text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-[#182330] dark:text-slate-100 tabular-nums mt-3 lg:mt-5 tracking-tight">
             {totalKits}
           </strong>
         </article>
@@ -108,21 +108,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
               dlExpiredCount === 0 && sqExpiredCount > 0 ? 'sensor_kits' : 'equipment'
             )
           }
-          className="p-5 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
+          className="p-5 lg:p-7 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e5e9ef] dark:border-[#334155] shadow-xs flex flex-col justify-between min-h-[112px] lg:min-h-[156px] xl:min-h-[172px] hover:border-[#ccd7e6] dark:hover:border-slate-500 transition-colors cursor-pointer group"
         >
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
+            <span className="text-xs lg:text-sm font-semibold text-[#526071] dark:text-slate-300 group-hover:text-[#182330] dark:group-hover:text-white transition-colors">
               Expired Calibrations
             </span>
-            <span className="w-7 h-7 rounded-lg bg-[#fff0ed] dark:bg-red-950/60 text-[#bd4d42] dark:text-red-400 text-[12px] font-bold flex items-center justify-center shrink-0">
+            <span className="w-7 h-7 lg:w-9 lg:h-9 rounded-lg bg-[#fff0ed] dark:bg-red-950/60 text-[#bd4d42] dark:text-red-400 text-[12px] lg:text-sm font-bold flex items-center justify-center shrink-0">
               !
             </span>
           </div>
-          <div className="mt-3 flex items-baseline justify-between gap-2">
-            <strong className="text-3xl font-extrabold text-[#182330] dark:text-slate-100 tabular-nums tracking-tight">
+          <div className="mt-3 lg:mt-5 flex items-baseline justify-between gap-2">
+            <strong className="text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-[#182330] dark:text-slate-100 tabular-nums tracking-tight">
               {expiredCount}
             </strong>
-            <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#788493] dark:text-slate-400 tabular-nums">
+            <div className="flex items-center gap-1.5 text-[11px] lg:text-xs font-medium text-[#788493] dark:text-slate-400 tabular-nums">
               <button
                 type="button"
                 onClick={(e) => {
